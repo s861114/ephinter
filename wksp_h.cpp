@@ -1,5 +1,6 @@
 #include "wksp.h"
 
+
 void WKSP::set_H_A(void)
 {
 	#pragma omp parallel for
@@ -51,3 +52,17 @@ void WKSP::set_H_AB(void)
 		}
 	}
 }
+
+void WKSP::set_H(void)
+{
+	switch(N_idf)
+	{
+		case 1:N=1;N2=2;initial_malloc();set_H_A();		
+				break;
+
+		case 2:N=2;N2=4;initial_malloc();set_H_AB();				
+				break;
+	}
+}
+
+

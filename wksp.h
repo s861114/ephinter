@@ -15,36 +15,53 @@ public:
 	WKSP();  // initailize, memory allocation, define constant;
 	~WKSP(); // memory free
 
-	// setting
+
+
+
+
+	//------- constant_setting-----------
+
+	double gamma0;
+	double gamma1;
+	double a;
+	double d;
+	//------------------------------------
+
+
+
+
+
+	//----------Setup.set-----------------
 	void initial_read_setting(void);
+	
 	int N_radial; 
 	double kc;
 	double h_radial; // kc/N_radial;
+	
 	int N_theta;
 	double h_theta; // 2pi/N_theta;
 	double c_theta; // 1/N_theta;
-	double kf;
+
+	int N_idf;	
+	//----------Setup.set End--------------
+
+
+
+	
+	
+	//-----------Variables---------------
+	int vg;
 	int numofthread;
+	int hv_a;
 	int N;  // num of layer
 	int N2; // dim of system.
 	// N2= 2*N for full band model, N2 = 2 for 2band model
+	//--------------------------------------
 
-	//constant
+	//--------------Functions--------------
 	void initial_define_constant(void);
-	double gamma0;
-	double gamma1;
-	double epsilon; // dielectric constant
-	double esq; //e^2
-	double a; //lattice constant 2.46
-	double d; // distance between layers 3.35 angstrom
-	double dbar; // d/a (unitless)
-	double esq_a;  //e^2/a
-	double esq_ea; //e^2/a/epsilon
-	double hv_a; // hbar v0 / a;
-	double alpha; // e^2/(epsilon hbar v0)
-	double alpha0; // e^2/(hbar v0) epsilon=1  alpha<=alpha0;
-	void set_alpha(double new_alpha);
-	void set_epsilon(double new_epsilon);
+
+	//-------------------------------------
 
 	int tot_th;
 
@@ -61,6 +78,7 @@ public:
 
 	gsl_matrix_complex*** H; //matrix* Hamailtonian[radial][theta]
 
+//------------------Build Hamiltonians--------------------
 	void set_H(void);
 
 	void set_H_A(void);
@@ -78,22 +96,9 @@ public:
 	void set_H_ABA(void);
 	void set_H_ABAB(void);
 	void set_H_ABABA(void);
-	
-	int calcul_pho(void); // wavefunction,eigensate -> density matrix
+//--------------------------------------------------
 
-	void set_initial(char* log);
-	void set_initial_n(char* log);
 
-	double vg; // external field
-	void print_epho(void);
-	void print_epho44(void);
-	void print_H(void);
-	void print_en(void);
-	void print_ken(void); //electron density ditribution[radial]
-	void print_energy(void);
-
-	bool hartree;
-	bool fock;
 };
 
 #endif
