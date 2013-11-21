@@ -55,15 +55,23 @@ public:
 	int hv_a;
 	int N;  // num of layer
 	int N2; // dim of system.
+	int tot_th;
 	// N2= 2*N for full band model, N2 = 2 for 2band model
 	//--------------------------------------
 
+
+
+
+
+
 	//--------------Functions--------------
 	void initial_define_constant(void);
-
+	void band_cal(void);
 	//-------------------------------------
 
-	int tot_th;
+
+
+
 
 	/// memory
 	void initial_malloc(void);

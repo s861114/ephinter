@@ -1,4 +1,4 @@
-N_radial	3
+N_radial	1000
 kc			1
-N_theta		3
+N_theta		10
 N_idf		2

@@ -6,6 +6,7 @@
 int main(void)
 {
 	WKSP wksp;
+	wksp.band_cal();
 
 	return 0;
 }
