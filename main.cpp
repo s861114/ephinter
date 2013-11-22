@@ -7,6 +7,6 @@ int main(void)
 {
 	WKSP wksp;
 	wksp.band_cal();
-
+	wksp.polar_func();
 	return 0;
 }

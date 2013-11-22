@@ -20,7 +20,6 @@ public:
 
 
 	//------- constant_setting-----------
-
 	double gamma0;
 	double gamma1;
 	double a;
@@ -43,7 +42,17 @@ public:
 	double c_theta; // 1/N_theta;
 
 	int N_idf;	
-	//----------Setup.set End--------------
+
+	int N_q;
+	double qc;
+	double h_q;
+
+	int N_phiq;
+	double h_phiq;
+
+	int N_omg;
+	double h_omg;
+	//----------------------------------
 
 
 
@@ -57,6 +66,17 @@ public:
 	int N2; // dim of system.
 	int tot_th;
 	// N2= 2*N for full band model, N2 = 2 for 2band model
+
+	int q_idx;
+	int phiq_idx;
+	int omg_idx;
+
+	double**** polar_total_var; 
+	double****** polar_band_var;
+
+	double q_real;
+	double phiq_real;
+	double omg_real;
 	//--------------------------------------
 
 
@@ -64,9 +84,16 @@ public:
 
 
 
-	//--------------Functions--------------
+	//-----functions&associated varables---
 	void initial_define_constant(void);
+
 	void band_cal(void);
+
+	void polar_func(void);
+
+	void sub_polar_func(void);
+
+	void sum_total_func(void);
 	//-------------------------------------
 
 
@@ -86,7 +113,7 @@ public:
 
 	gsl_matrix_complex*** H; //matrix* Hamailtonian[radial][theta]
 
-//------------------Build Hamiltonians--------------------
+	//------------------Build Hamiltonians--------------------
 	void set_H(void);
 
 	void set_H_A(void);
@@ -104,7 +131,7 @@ public:
 	void set_H_ABA(void);
 	void set_H_ABAB(void);
 	void set_H_ABABA(void);
-//--------------------------------------------------
+	//--------------------------------------------------
 
 
 };

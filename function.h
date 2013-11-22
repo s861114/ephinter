@@ -18,10 +18,13 @@ class umat
 		T** Tmatrix2(int i,int j);
 		T*** Tmatrix3(int i,int j,int k);
 		T**** Tmatrix4(int i,int j,int k,int l);
+		T****** Tmatrix6(int i,int j,int k,int l, int m, int n);
+
 		void Tfree1(T* a);
 		void Tfree2(T** a);
 		void Tfree3(T*** a);
 		void Tfree4(T**** a);
+		void Tfree6(T****** a);
 };
 
 template<class T>
@@ -89,6 +92,38 @@ T**** umat<T>::Tmatrix4(int i,int j,int k,int l)
 	return a;
 }
 template<class T>
+T****** umat<T>::Tmatrix6(int i,int j,int k,int l,int m, int n)
+{
+	T****** a = (T******)malloc(sizeof(T*****)*i);
+	a[0] = (T*****)malloc(sizeof(T****)*i*j);
+	a[0][0] = (T****)malloc(sizeof(T***)*i*j*k);
+	a[0][0][0]= (T***)malloc(sizeof(T**)*i*j*k*l);
+	a[0][0][0][0]= (T**)malloc(sizeof(T*)*i*j*k*l*m);
+	a[0][0][0][0][0]= (T*)malloc(sizeof(T)*i*j*k*l*m*n);
+
+	for(int p=0;p<i; p++)
+	{
+		a[p] = a[0]+p*j;
+		for(int q=0; q<j; q++)
+		{
+			a[p][q] = a[0][0]+p*j*k+q*k;
+			for(int r=0; r<k; r++)
+			{
+				a[p][q][r] = a[0][0][0] + p*j*k*l + q*k*l + r*l;
+				for(int s=0; s<l; s++)
+				{
+					a[p][q][r][s] = a[0][0][0][0] + p*j*k*l*m + q*k*l*m + r*l*m + s*m;
+					for(int t=0; t<m; t++)
+					{
+						a[p][q][r][s][t] = a[0][0][0][0][0] + p*j*k*l*m*n + q*k*l*m*n + r*l*m*n + s*m*n + t*n;
+					}
+				}
+			}
+		}
+	}
+	return a;
+}
+template<class T>
 void umat<T>::Tfree1(T* a)
 {
 	free(a);
@@ -114,5 +149,14 @@ void umat<T>::Tfree4(T**** a)
 	free(a[0]);
 	free(a);
 }
-
+template<class T>
+void umat<T>::Tfree6(T****** a)
+{
+	free(a[0][0][0][0][0]);
+	free(a[0][0][0][0]);
+	free(a[0][0][0]);
+	free(a[0][0]);
+	free(a[0]);
+	free(a);
+}
 #endif

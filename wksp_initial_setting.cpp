@@ -6,6 +6,7 @@ WKSP::WKSP()
 	initial_define_constant();
 	initial_read_setting();
 	set_H();
+
 }
 
 void WKSP::initial_define_constant(void)
@@ -36,14 +37,22 @@ void WKSP::initial_read_setting(void)
 		fgets(dump,100,fp);
 		printf("%s",dump);
 	}*/
+
 	fgets(dump,100,fp);	sscanf(dump,"%s  %d\n",dump1,&N_radial);
 	fgets(dump,100,fp);	sscanf(dump,"%s  %lf\n",dump1,&kc);		
 	fgets(dump,100,fp);	sscanf(dump,"%s  %d\n",dump1,&N_theta);		
 	fgets(dump,100,fp);	sscanf(dump,"%s  %d\n",dump1,&N_idf);	
-
+	fgets(dump,100,fp);	sscanf(dump,"%s  %d\n",dump1,&N_q);	
+	fgets(dump,100,fp);	sscanf(dump,"%s  %lf\n",dump1,&qc);	
+	fgets(dump,100,fp);	sscanf(dump,"%s  %d\n",dump1,&N_phiq);	
+	fgets(dump,100,fp);	sscanf(dump,"%s  %d\n",dump1,&N_omg);	
+	
 	h_radial = kc / N_radial;
 	h_theta = 2.0*M_PI/ N_theta;
 	c_theta = 1.0/N_theta;	
+	h_q = qc / N_q;
+	h_phiq = 2.0*M_PI/ N_phiq;
+	h_omg = 2.0*M_PI/ N_omg;		
 
 }
 
@@ -68,9 +77,11 @@ void WKSP::initial_malloc(void)
 	eigen_state = mat_gsl_matrix_complex_pointer.Tmatrix2(N_radial,N_theta);
 	H = mat_gsl_matrix_complex_pointer.Tmatrix2(N_radial,N_theta);
 	epho = mat_gsl_matrix_complex_pointer.Tmatrix3(N2,N_radial,N_theta);
-	// N2 is # of bnads of system.
+	// N2 is the number of bands of the system.
 	energy = mat_double.Tmatrix3(N2,N_radial,N_theta);
 	en = mat_double.Tmatrix1(N2);
+	polar_band_var=mat_double.Tmatrix6(N_q,N_phiq,N_omg,N2,N2,2);
+	polar_total_var=mat_double.Tmatrix4(N_q,N_phiq,N_omg,2);
 
 	for(int i=0; i<N_radial; i++)
 	{
@@ -113,6 +124,8 @@ WKSP::~WKSP()
 	mat_gsl_matrix_complex_pointer.Tfree2(H);
 	mat_double.Tfree3(energy);
 	mat_double.Tfree1(en);
+	mat_double.Tfree4(polar_total_var);
+	mat_double.Tfree6(polar_band_var);
 	printf("finish memory free\n");
 }
 
