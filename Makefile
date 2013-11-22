@@ -1,7 +1,7 @@
 OBJECT2 = /usr/local/lib/libgsl.a /usr/local/lib/libgslcblas.a
 OUTFLAG = -fopenmp  
-CFLAG = -O3 -lm -g
-CFLAGI = -O3 -I/usr/local/include 
+CFLAG = -O3 -lm -g -ggdb
+CFLAGI = -O3 -I/usr/local/include -w
 
 CC= g++
 

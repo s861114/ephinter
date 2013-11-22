@@ -7,7 +7,7 @@
 #include <gsl/gsl_matrix_complex_double.h>
 #include <gsl/gsl_vector_complex_double.h>
 #include <omp.h>
-
+#include <gsl/gsl_sf_trig.h>
 
 class WKSP  // wksp = workspace
 {
@@ -24,6 +24,7 @@ public:
 	double gamma1;
 	double a;
 	double d;
+	double hv_a;
 	//------------------------------------
 
 
@@ -51,6 +52,7 @@ public:
 	double h_phiq;
 
 	int N_omg;
+	double omgc;
 	double h_omg;
 	//----------------------------------
 
@@ -61,7 +63,6 @@ public:
 	//-----------Variables---------------
 	int vg;
 	int numofthread;
-	int hv_a;
 	int N;  // num of layer
 	int N2; // dim of system.
 	int tot_th;
@@ -71,12 +72,17 @@ public:
 	int phiq_idx;
 	int omg_idx;
 
+	int k_idx;
+	int phik_idx;
+
 	double**** polar_total_var; 
 	double****** polar_band_var;
 
 	double q_real;
 	double phiq_real;
 	double omg_real;
+
+	double Ef;
 	//--------------------------------------
 
 
@@ -87,13 +93,19 @@ public:
 	//-----functions&associated varables---
 	void initial_define_constant(void);
 
+	void initial_stacking_determiner(void);
+	
 	void band_cal(void);
 
+	void band_cal_q(void);
+	
 	void polar_func(void);
 
 	void sub_polar_func(void);
 
 	void sum_total_func(void);
+
+	double overlap(int i, int j);
 	//-------------------------------------
 
 
@@ -106,8 +118,9 @@ public:
 	gsl_vector** eval;
 
 	gsl_matrix_complex*** eigen_state; //matrix* eigenstate[radial][theta]
-	gsl_matrix_complex**** epho; //density_matrix //matrix* epho[band][radial][theta]
+	gsl_matrix_complex*** eigen_state_q; //matrix* eigenstate[radial][theta]
 	double*** energy; // energy[band][radial][theta]
+	double*** energy_q; // energy[band][radial][theta]
 	void set_en(void); // calculate electron density
 	double* en; // electron density[layer]
 

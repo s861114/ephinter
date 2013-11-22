@@ -2,4 +2,4 @@
 
 make clean
 make
-./main.out
+time ./main.out

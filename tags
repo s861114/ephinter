@@ -1,0 +1,91 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	Makefile	/^CC= g++$/;"	m
+CFLAG	Makefile	/^CFLAG = -O3 -lm -g -ggdb$/;"	m
+CFLAGI	Makefile	/^CFLAGI = -O3 -I\/usr\/local\/include $/;"	m
+FUNCTION_H	function.h	2;"	d
+H	wksp.h	/^	gsl_matrix_complex*** H; \/\/matrix* Hamailtonian[radial][theta]$/;"	m	class:WKSP
+N	wksp.h	/^	int N;  \/\/ num of layer$/;"	m	class:WKSP
+N2	wksp.h	/^	int N2; \/\/ dim of system.$/;"	m	class:WKSP
+N_idf	wksp.h	/^	int N_idf;	$/;"	m	class:WKSP
+N_omg	wksp.h	/^	int N_omg;$/;"	m	class:WKSP
+N_phiq	wksp.h	/^	int N_phiq;$/;"	m	class:WKSP
+N_q	wksp.h	/^	int N_q;$/;"	m	class:WKSP
+N_radial	wksp.h	/^	int N_radial; $/;"	m	class:WKSP
+N_theta	wksp.h	/^	int N_theta;$/;"	m	class:WKSP
+OBJECT2	Makefile	/^OBJECT2 = \/usr\/local\/lib\/libgsl.a \/usr\/local\/lib\/libgslcblas.a$/;"	m
+OUTFLAG	Makefile	/^OUTFLAG = -fopenmp  $/;"	m
+Tfree1	function.h	/^void umat<T>::Tfree1(T* a)$/;"	f	class:umat
+Tfree2	function.h	/^void umat<T>::Tfree2(T** a)$/;"	f	class:umat
+Tfree3	function.h	/^void umat<T>::Tfree3(T*** a)$/;"	f	class:umat
+Tfree4	function.h	/^void umat<T>::Tfree4(T**** a)$/;"	f	class:umat
+Tfree6	function.h	/^void umat<T>::Tfree6(T****** a)$/;"	f	class:umat
+Tmatrix1	function.h	/^T* umat<T>::Tmatrix1(int i)$/;"	f	class:umat
+Tmatrix2	function.h	/^T** umat<T>::Tmatrix2(int i,int j)$/;"	f	class:umat
+Tmatrix3	function.h	/^T*** umat<T>::Tmatrix3(int i,int j,int k)$/;"	f	class:umat
+Tmatrix4	function.h	/^T**** umat<T>::Tmatrix4(int i,int j,int k,int l)$/;"	f	class:umat
+Tmatrix6	function.h	/^T****** umat<T>::Tmatrix6(int i,int j,int k,int l,int m, int n)$/;"	f	class:umat
+WKSP	wksp.h	/^class WKSP  \/\/ wksp = workspace$/;"	c
+WKSP	wksp_initial_setting.cpp	/^WKSP::WKSP()$/;"	f	class:WKSP
+WKSP_H	wksp.h	2;"	d
+a	wksp.h	/^	double a;$/;"	m	class:WKSP
+adaptive	integral.h	/^double adaptive(double (*fun)(double), double a, double b)$/;"	f
+adaptive2d	integral.h	/^double adaptive2d(double (*fun)(double,double),double xa,double xb,double ya,double yb)$/;"	f
+adaptive2d_internal	integral.h	/^double adaptive2d_internal(double (*fun)(double,double),double xa,double xb,double ya,double yb,int step,double torr)$/;"	f
+adaptive2d_polar	integral.h	/^double adaptive2d_polar( double (*fun)(double,double,double)$/;"	f
+adaptive2d_polar_internal	integral.h	/^double adaptive2d_polar_internal(double (*fun)(double,double,double)$/;"	f
+adaptive_internal	integral.h	/^double adaptive_internal(double (*fun)(double),double a,double b,int step,double torr)$/;"	f
+band_cal	wksp.cpp	/^void WKSP::band_cal(void)$/;"	f	class:WKSP
+band_cal_q	wksp.cpp	/^void WKSP::band_cal_q(void)$/;"	f	class:WKSP
+c_theta	wksp.h	/^	double c_theta; \/\/ 1\/N_theta;$/;"	m	class:WKSP
+d	wksp.h	/^	double d;$/;"	m	class:WKSP
+ddd	integral.h	/^double ddd=0;$/;"	v
+eigen_state	wksp.h	/^	gsl_matrix_complex*** eigen_state; \/\/matrix* eigenstate[radial][theta]$/;"	m	class:WKSP
+eigen_state_q	wksp.h	/^	gsl_matrix_complex*** eigen_state_q; \/\/matrix* eigenstate[radial][theta]$/;"	m	class:WKSP
+en	wksp.h	/^	double* en; \/\/ electron density[layer]$/;"	m	class:WKSP
+energy	wksp.h	/^	double*** energy; \/\/ energy[band][radial][theta]$/;"	m	class:WKSP
+energy_q	wksp.h	/^	double*** energy_q; \/\/ energy[band][radial][theta]$/;"	m	class:WKSP
+eval	wksp.h	/^	gsl_vector** eval;$/;"	m	class:WKSP
+gamma0	wksp.h	/^	double gamma0;$/;"	m	class:WKSP
+gamma1	wksp.h	/^	double gamma1;$/;"	m	class:WKSP
+gq	integral.h	/^double gq( double (*fun)(double),double a, double b,int N)$/;"	f
+gq2d	integral.h	/^double gq2d( double (*fun)(double,double),double xa, double xb,double ya,double yb,int N)$/;"	f
+gq2d_polar	integral.h	/^double gq2d_polar( double (*fun)(double,double,double)$/;"	f
+h_omg	wksp.h	/^	double h_omg;$/;"	m	class:WKSP
+h_phiq	wksp.h	/^	double h_phiq;$/;"	m	class:WKSP
+h_q	wksp.h	/^	double h_q;$/;"	m	class:WKSP
+h_radial	wksp.h	/^	double h_radial; \/\/ kc\/N_radial;$/;"	m	class:WKSP
+h_theta	wksp.h	/^	double h_theta; \/\/ 2pi\/N_theta;$/;"	m	class:WKSP
+hv_a	wksp.h	/^	int hv_a;$/;"	m	class:WKSP
+initial_define_constant	wksp_initial_setting.cpp	/^void WKSP::initial_define_constant(void)$/;"	f	class:WKSP
+initial_malloc	wksp_initial_setting.cpp	/^void WKSP::initial_malloc(void)$/;"	f	class:WKSP
+initial_read_setting	wksp_initial_setting.cpp	/^void WKSP::initial_read_setting(void)$/;"	f	class:WKSP
+initial_stacking_determiner	wksp.cpp	/^void WKSP::initial_stacking_determiner(void)$/;"	f	class:WKSP
+kc	wksp.h	/^	double kc;$/;"	m	class:WKSP
+main	main.cpp	/^int main(void)$/;"	f
+numofthread	wksp.h	/^	int numofthread;$/;"	m	class:WKSP
+omg_idx	wksp.h	/^	int omg_idx;$/;"	m	class:WKSP
+omg_real	wksp.h	/^	double omg_real;$/;"	m	class:WKSP
+percent	integral.h	/^double percent=0;$/;"	v
+phiq_idx	wksp.h	/^	int phiq_idx;$/;"	m	class:WKSP
+phiq_real	wksp.h	/^	double phiq_real;$/;"	m	class:WKSP
+polar_band_var	wksp.h	/^	double****** polar_band_var;$/;"	m	class:WKSP
+polar_func	wksp.cpp	/^void WKSP::polar_func(void)$/;"	f	class:WKSP
+polar_total_var	wksp.h	/^	double**** polar_total_var; $/;"	m	class:WKSP
+q_idx	wksp.h	/^	int q_idx;$/;"	m	class:WKSP
+q_real	wksp.h	/^	double q_real;$/;"	m	class:WKSP
+qc	wksp.h	/^	double qc;$/;"	m	class:WKSP
+set_H	wksp_h.cpp	/^void WKSP::set_H(void)$/;"	f	class:WKSP
+set_H_A	wksp_h.cpp	/^void WKSP::set_H_A(void)$/;"	f	class:WKSP
+set_H_AB	wksp_h.cpp	/^void WKSP::set_H_AB(void)$/;"	f	class:WKSP
+sub_polar_func	wksp.cpp	/^void WKSP::sub_polar_func(void)$/;"	f	class:WKSP
+sum_total_func	wksp.cpp	/^void WKSP::sum_total_func(void)$/;"	f	class:WKSP
+tot_th	wksp.h	/^	int tot_th;$/;"	m	class:WKSP
+umat	function.h	/^class umat$/;"	c
+vg	wksp.h	/^	int vg;$/;"	m	class:WKSP
+ws	wksp.h	/^	gsl_eigen_hermv_workspace** ws;$/;"	m	class:WKSP
+~WKSP	wksp_initial_setting.cpp	/^WKSP::~WKSP()$/;"	f	class:WKSP

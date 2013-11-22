@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "wksp.h"
 #include "function.h"
-
+#include <time.h>
 int main(void)
 {
 	WKSP wksp;

@@ -1,5 +1,5 @@
 #include "wksp.h"
-
+#include <cmath>
 
 void WKSP::set_H_A(void)
 {
@@ -10,11 +10,17 @@ void WKSP::set_H_A(void)
 		for(int j=0; j<N_theta; j++)
 		{
 			double theta = (j*0.5)*h_theta;
-			double aa = hv_a;
-
-			gsl_complex offdia01 = gsl_complex_polar(aa*kk,-theta);// = var1 exp(i var2)
+			
+			gsl_complex offdia01 = gsl_complex_polar(kk,-theta);// = var1 exp(i var2)
 			gsl_complex offdia10 = gsl_complex_conjugate(offdia01);
-
+			if ( (q_real==0)==false || (phiq_real==0)==false )
+			{
+				gsl_complex temp1=gsl_complex_polar(kk,theta);
+				gsl_complex temp2=gsl_complex_polar(q_real,phiq_real);
+				
+				offdia01=gsl_complex_add(temp1,temp2);
+				offdia10=gsl_complex_conjugate(offdia01);
+			}			
 			gsl_matrix_complex_set_zero(H[i][j]);
 			gsl_matrix_complex_set(H[i][j],0,0, gsl_complex_rect(vg,0) );
 			gsl_matrix_complex_set(H[i][j],0,1,  offdia01);
@@ -57,10 +63,10 @@ void WKSP::set_H(void)
 {
 	switch(N_idf)
 	{
-		case 1:N=1;N2=2;initial_malloc();set_H_A();		
+		case 1:N=1;N2=2;set_H_A();		
 				break;
 
-		case 2:N=2;N2=4;initial_malloc();set_H_AB();				
+		case 2:N=2;N2=4;set_H_AB();				
 				break;
 	}
 }

@@ -1,8 +1,10 @@
-N_radial	1000
+N_radial	2000
 kc			1
-N_theta		10
+N_theta		100
 N_idf		1
-N_q			1000
+N_q			10
 qc			1
-N_phiq		1
+N_phiq		100
 N_omgq		1
+omgc		5
+Ef			0.3
