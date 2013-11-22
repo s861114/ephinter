@@ -4,11 +4,13 @@
 void WKSP::band_cal(void)
 {
 	FILE *fp=fopen("/media/sf_LinuxShare/output.txt","w");
+	omp_set_num_threads (3);
 	#pragma omp parallel for
 	for(int i=0; i<N_radial; i++)
 	{
+		
 		int cur_th = omp_get_thread_num();
-		fprintf(stderr,"cur_th : %d\n", cur_th);
+		fprintf(stderr,"cur_th : %d\n", omp_get_num_threads());
 		// getting current thread num
 		for(int j=0; j<N_theta; j++)
 		{

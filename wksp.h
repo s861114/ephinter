@@ -106,6 +106,8 @@ public:
 	void sum_total_func(void);
 
 	double overlap(int i, int j);
+
+	void print_polar(void);
 	//-------------------------------------
 
 
