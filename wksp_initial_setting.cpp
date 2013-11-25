@@ -87,6 +87,7 @@ void WKSP::initial_malloc(void)
 	
 	polar_band_var=mat_double.Tmatrix6(N_q,N_phiq,N_omg,N2,N2,2);
 	polar_total_var=mat_double.Tmatrix4(N_q,N_phiq,N_omg,2);
+	polar_total_var_analytic=mat_double.Tmatrix4(N_q,N_phiq,N_omg,2);
 
 	for(int i=0; i<N_radial; i++)
 	{

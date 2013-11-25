@@ -77,6 +77,7 @@ public:
 
 	double**** polar_total_var; 
 	double****** polar_band_var;
+	double**** polar_total_var_analytic; 
 
 	double q_real;
 	double phiq_real;
@@ -105,9 +106,23 @@ public:
 
 	void sum_total_func(void);
 
+	void sum_total_func_analytic(void);
+
 	double overlap(int i, int j);
 
 	void print_polar(void);
+
+	double Re_polar_analytic_1(double x, double v);
+
+	double Re_polar_analytic_2(double x, double v);
+
+	double f1(double x, double y);
+	
+	double f2(double x, double y);
+
+	double f3(double x, double y);
+
+	double signum(double x);
 	//-------------------------------------
 
 
